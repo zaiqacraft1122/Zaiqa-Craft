@@ -187,7 +187,7 @@ a:hover {
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: url('../assets/images/shape_connections_16.svg');
+  background-image: url('/assets/images/shape_connections_16.svg');
   background-repeat: repeat;
   background-size: 400px;
   opacity: 0.15;
@@ -973,7 +973,7 @@ a:hover {
 
 /* Parallax Title Section */
 .page-title-parallax {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../assets/images/about_hero_bg.webp') center/cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/assets/images/about_hero_bg.webp') center/cover no-repeat;
   color: #ffffff;
   padding: 60px 0;
   text-align: center;

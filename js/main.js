@@ -17,8 +17,8 @@ const PRODUCTS_DATA = [
     reviewsCount: 28,
     subdesc: "Super Nayab Chakwal Rewari – Premium Jaggery & Pure Ghee\nExperience the Authentic Taste of Chakwal!",
     description: "Super Nayab Chakwal Rewari is handcrafted with centuries-old traditional recipes from Chakwal. Made with premium quality golden sesame seeds (til), pure organic desi ghee, and unrefined organic jaggery (gur). Crispy, aromatic, rich in authentic nutrition, and sealed for absolute freshness.",
-    primaryImg: "assets/images/prod_rewari_1kg_4k.jpg",
-    secondaryImg: "assets/images/prod_nayab_4k.jpg",
+    primaryImg: "/assets/images/prod_rewari_1kg_4k.jpg",
+    secondaryImg: "/assets/images/prod_nayab_4k.jpg",
     variants: [
       { weight: "1kg", price: 1000.00, originalPrice: 1200.00 }
     ],
@@ -37,8 +37,8 @@ const PRODUCTS_DATA = [
     reviewsCount: 19,
     subdesc: "Premium Thick Crunchy Sev Sticks\nA Tangy Tea-Time Delight",
     description: "Crispy, savory, and delicately spiced thick Sev sticks. Prepared with 100% pure chickpea gram flour (besan) and exquisite Pakistani spices for the perfect crunch with evening tea.",
-    primaryImg: "assets/images/prod_sev_4k.jpg",
-    secondaryImg: "assets/images/hero_gourmet_4k.jpg",
+    primaryImg: "/assets/images/prod_sev_4k.jpg",
+    secondaryImg: "/assets/images/hero_gourmet_4k.jpg",
     variants: [
       { weight: "1kg", price: 1000.00, originalPrice: 1200.00 }
     ],
@@ -57,8 +57,8 @@ const PRODUCTS_DATA = [
     reviewsCount: 42,
     subdesc: "Super Nayab Chakwal Rewari – Premium Jaggery & Pure Ghee Savor the True Essence of Chakwal!",
     description: "Our signature Nayab Chakwal Rewari presented in elegant airtight packaging. Authentic Chakwali Gur and desi ghee formulation with golden sesame perfection.",
-    primaryImg: "assets/images/prod_nayab_4k.jpg",
-    secondaryImg: "assets/images/prod_rewari_1kg_4k.jpg",
+    primaryImg: "/assets/images/prod_nayab_4k.jpg",
+    secondaryImg: "/assets/images/prod_rewari_1kg_4k.jpg",
     variants: [
       { weight: "250g", price: 250.00, originalPrice: null },
       { weight: "500g", price: 499.00, originalPrice: 550.00 },
@@ -79,8 +79,8 @@ const PRODUCTS_DATA = [
     reviewsCount: 56,
     subdesc: "Ultimate snack assortment featuring 12 different authentic Pakistani delicacies in one luxury celebration gift box.",
     description: "The ultimate celebration hamper! A curated 12-in-1 luxury box featuring our complete artisanal range: authentic Rewari, Crunchy Sev Sticks, Namak Paray, roasted nuts, sweet dates, sesame brittle, and dried fruits.",
-    primaryImg: "assets/images/prod_snack_box_4k.jpg",
-    secondaryImg: "assets/images/hero_gourmet_4k.jpg",
+    primaryImg: "/assets/images/prod_snack_box_4k.jpg",
+    secondaryImg: "/assets/images/hero_gourmet_4k.jpg",
     variants: [
       { weight: "12-in-1 Box", price: 999.00, originalPrice: 1200.00 }
     ],
@@ -418,8 +418,8 @@ function renderProductCard(product) {
         <div class="product-image-container position-relative">
           ${badgeHtml}
           <a href="product.html?slug=${product.slug}">
-            <img src="${product.primaryImg}" alt="${product.name}" class="product-img-primary" loading="lazy">
-            <img src="${product.secondaryImg}" alt="${product.name}" class="product-img-secondary" loading="lazy">
+            <img src="${product.primaryImg}" alt="${product.name}" class="product-img-primary" loading="eager">
+            <img src="${product.secondaryImg}" alt="${product.name}" class="product-img-secondary" loading="eager">
           </a>
         </div>
         <div class="product-info">
@@ -481,7 +481,6 @@ let scrollObserverInstance = null;
 
 function initScrollZoomAnimations() {
   const targetSelectors = [
-    '.hero-section .row > div',
     '.product-card',
     '.process-step-card',
     '.why-buy-section .bg-white',
