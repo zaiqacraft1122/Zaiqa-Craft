@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title id="pageTitle">Product Details | Zaiqacraft</title>
+
+    <link rel="shortcut icon" href="assets/images/favicon.webp" type="image/x-icon">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700;800&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+
+    <!-- Header Navigation -->
+    <header class="o_header_standard">
+        <nav class="d-none d-lg-block top-navbar-desktop">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-4 d-flex align-items-center gap-3">
+                        <button type="button" class="header-search-btn" data-bs-toggle="modal" data-bs-target="#searchModal" title="Search">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="index.html" class="navbar-brand">
+                            <img src="assets/images/zaiqa_logo.png" alt="Zaiqacraft" class="navbar-brand-logo">
+                        </a>
+                    </div>
+                    <div class="col-4 d-flex justify-content-end align-items-center gap-3">
+                        <a href="cart.html" class="header-cart-btn" title="View Cart">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span class="badge-counter my_cart_quantity d-none">0</span>
+                        </a>
+                        <a href="wishlist.html" class="header-wish-btn" title="Wishlist">
+                            <i class="fa fa-heart"></i>
+                            <span class="badge-counter my_wish_quantity d-none">0</span>
+                        </a>
+                        <a href="#" class="signin-link" onclick="alert('Login / Register')">Sign in</a>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <ul class="primary-menu-nav">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="shop.html" class="active">Shop</a></li>
+                            <li><a href="about-us.html">About Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <nav class="d-block d-lg-none o_header_mobile">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <a href="shop.html" class="btn p-2 border-0"><i class="fa fa-arrow-left fs-5"></i></a>
+                <a href="index.html" class="navbar-brand m-0">
+                    <img src="assets/images/zaiqa_logo.png" alt="Zaiqacraft" style="height: 36px;">
+                </a>
+                <a href="cart.html" class="header-cart-btn">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="badge-counter my_cart_quantity d-none">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg pt-5">
+            <div class="modal-content mt-5 border-0 shadow">
+                <div class="modal-body p-4">
+                    <div class="input-group input-group-lg">
+                        <input type="search" id="modalSearchBox" class="form-control border-end-0 bg-light" placeholder="Search snacks, rewari, sweets...">
+                        <button type="button" class="btn btn-primary px-4" style="background-color: var(--primary); border-color: var(--primary);" onclick="const v = document.getElementById('modalSearchBox').value; if(v) window.location.href='shop.html?search='+encodeURIComponent(v);">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Container -->
+    <main class="py-5">
+        <div class="container">
+            <!-- Breadcrumbs -->
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb small">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="shop.html">Shop</a></li>
+                    <li class="breadcrumb-item active" id="breadcrumbTitle">Product</li>
+                </ol>
+            </nav>
+
+            <div class="product-detail-card shadow-sm mb-5">
+                <div class="row g-5">
+                    <!-- Left: Gallery -->
+                    <div class="col-lg-6">
+                        <div class="product-gallery-main shadow-sm">
+                            <img id="mainProductImg" src="" alt="Product Image">
+                        </div>
+                        <div class="product-gallery-thumbs" id="galleryThumbs">
+                            <!-- Thumbnails added dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Right: Info & Actions -->
+                    <div class="col-lg-6">
+                        <h1 class="h2 fw-bold text-dark mb-2" id="prodTitle">Product Name</h1>
+                        
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <div class="text-warning small" id="ratingStars">
+                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                            </div>
+                            <span class="text-muted small" id="reviewsText">(14 reviews)</span>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle ms-2">In Stock</span>
+                        </div>
+
+                        <div class="d-flex align-items-baseline gap-3 mb-4">
+                            <span class="fs-2 fw-bold" style="color: var(--primary);" id="prodPrice">0.00 Rs.</span>
+                            <span class="fs-5 text-muted text-decoration-line-through d-none" id="prodOldPrice"></span>
+                        </div>
+
+                        <div class="p-3 bg-light rounded mb-4 text-muted" id="prodSubdesc" style="font-size: 0.95rem; line-height: 1.6;">
+                            Subdescription goes here...
+                        </div>
+
+                        <!-- Variant Weight Selector -->
+                        <div class="mb-4" id="variantsContainerWrapper">
+                            <label class="fw-bold mb-2 d-block">Select Weight:</label>
+                            <div class="d-flex flex-wrap gap-2" id="variantsContainer">
+                                <!-- Variant buttons -->
+                            </div>
+                        </div>
+
+                        <!-- Quantity Selector -->
+                        <div class="mb-4">
+                            <label class="fw-bold mb-2 d-block">Quantity:</label>
+                            <div class="qty-control">
+                                <button type="button" class="qty-btn" onclick="adjustQty(-1)"><i class="fa fa-minus"></i></button>
+                                <input type="number" id="detailQty" class="qty-input" value="1" min="1" readonly>
+                                <button type="button" class="qty-btn" onclick="adjustQty(1)"><i class="fa fa-plus"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="d-flex flex-wrap gap-3 mb-4">
+                            <button type="button" class="btn btn-lg px-4 fw-bold text-white shadow-sm flex-grow-1" style="background-color: var(--primary);" onclick="addToCartCurrent()">
+                                <i class="fa fa-shopping-cart me-2"></i> Add to Cart
+                            </button>
+                            <a href="#" id="btnWhatsappOrder" class="whatsapp-direct-btn flex-grow-1 text-center" target="_blank">
+                                <i class="fab fa-whatsapp fs-5"></i> Order via WhatsApp
+                            </a>
+                        </div>
+
+                        <div class="d-flex gap-3 pt-3 border-top text-muted small">
+                            <button type="button" class="btn btn-link text-muted p-0 text-decoration-none" onclick="toggleCurrentWishlist()">
+                                <i class="fa fa-heart me-1" id="wishlistIcon"></i> Add to Wishlist
+                            </button>
+                            <span class="text-muted">|</span>
+                            <span><i class="fa fa-truck me-1"></i> Delivery Across Pakistan (2-4 Days)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs: Description & Reviews -->
+            <div class="bg-white p-4 rounded shadow-sm mb-5">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <button class="nav-link active fw-bold text-dark" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc-pane" type="button">Description</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link fw-bold text-dark" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-pane" type="button">Customer Reviews</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link fw-bold text-dark" id="shipping-tab" data-bs-toggle="tab" data-bs-target="#shipping-pane" type="button">Shipping &amp; Delivery</button>
+                    </li>
+                </ul>
+                <div class="tab-content p-4" id="myTabContent">
+                    <div class="tab-pane fade show active" id="desc-pane">
+                        <h5 class="fw-bold mb-3">Product Overview</h5>
+                        <p id="fullDescText" class="text-muted" style="line-height: 1.8;"></p>
+                        <h6 class="fw-bold mt-4 mb-2">Key Highlights:</h6>
+                        <ul class="text-muted" style="line-height: 1.8;">
+                            <li>100% Pure, Organic &amp; Hygienically Prepared</li>
+                            <li>Authentic Traditional Chakwali Recipe</li>
+                            <li>Free from artificial chemicals, colors, or preservatives</li>
+                            <li>Airtight Sealed Packaging for lasting freshness and crunch</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="reviews-pane">
+                        <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom">
+                            <div>
+                                <h5 class="fw-bold mb-1">Customer Reviews</h5>
+                                <div class="text-warning">
+                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                    <span class="text-muted ms-2">5.0 out of 5 based on customer ratings</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline-primary btn-sm" onclick="alert('Thank you for rating! Submit review form is active.')">Write a Review</button>
+                        </div>
+                        <div class="review-item mb-3 pb-3 border-bottom">
+                            <div class="d-flex justify-content-between">
+                                <span class="fw-bold">Muhammad Usman</span>
+                                <span class="text-muted small">2 days ago</span>
+                            </div>
+                            <div class="text-warning small mb-1"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                            <p class="text-muted mb-0 small">"Bohat hi lazeez or fresh packaging thi! Asal chakwal rewari ka maza agaya. Highly recommended!"</p>
+                        </div>
+                        <div class="review-item">
+                            <div class="d-flex justify-content-between">
+                                <span class="fw-bold">Ayesha Tariq</span>
+                                <span class="text-muted small">1 week ago</span>
+                            </div>
+                            <div class="text-warning small mb-1"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                            <p class="text-muted mb-0 small">"Super crunchy and delicious snacks. Fast delivery in Lahore. Ordered for the second time."</p>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="shipping-pane">
+                        <h5 class="fw-bold mb-3">Delivery Information</h5>
+                        <p class="text-muted">We deliver all across Pakistan through express courier partners.</p>
+                        <ul class="text-muted">
+                            <li><strong>Standard Delivery:</strong> 2 to 4 working days.</li>
+                            <li><strong>Payment Options:</strong> Cash on Delivery (COD), Direct Bank Transfer, or EasyPaisa/JazzCash.</li>
+                            <li><strong>Returns:</strong> 7-day hassle-free return policy if package is defective or unsatisfied.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <div>
+                <h3 class="fw-bold mb-4">Related Delights</h3>
+                <div class="row" id="relatedProductsGrid"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-5 col-md-12">
+                    <h4 class="footer-heading">About us</h4>
+                    <p class="footer-about-text">
+                        Zaiqa Craft is all about taste, quality, and freshness. We offer a carefully chosen variety of food items made to suit every season and every craving.<br><br>
+                        Simple food. Honest quality. Great taste.<br><br>
+                        Crafted with care. Served with taste.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Useful Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About us</a></li>
+                        <li><a href="shop.html">Products</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="contactus.html">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="footer-heading">Connect with us</h4>
+                    <ul class="footer-contact-list">
+                        <li><i class="fa fa-comment"></i><a href="contactus.html">Contact us</a></li>
+                        <li><i class="fa fa-envelope"></i><a href="mailto:zaiqacraft.pk@gmail.com">zaiqacraft.pk@gmail.com</a></li>
+                        <li><i class="fa fa-phone"></i><a href="tel:+923074156658">+923074156658</a></li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="https://WA.me/+923074156658" target="_blank" class="social-btn text-success"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://facebook.com" target="_blank" class="social-btn text-primary"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="social-btn text-danger"><i class="fab fa-instagram"></i></a>
+                        <a href="https://tiktok.com" target="_blank" class="social-btn text-dark"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+
+                        <div class="copyright-bar mt-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="mb-0">Copyright &copy; 2026, <a href="index.html" class="fw-semibold">Zaiqa Craft</a></p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+                        <span>Powered by <a href="https://www.kaleemullahzahid.online/" target="_blank" class="qarafi-brand-link" title="Qarafi"><span class="qarafi-logo-text">Qarafi</span></a> - The #1 Open Source eCommerce</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        let currentProduct = null;
+        let selectedWeight = null;
+        let currentQty = 1;
+
+        function adjustQty(delta) {
+            currentQty = Math.max(1, currentQty + delta);
+            document.getElementById('detailQty').value = currentQty;
+            updateWhatsAppLink();
+        }
+
+        function selectWeight(weight) {
+            selectedWeight = weight;
+            document.querySelectorAll('.weight-selector-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.weight === weight);
+            });
+            const variant = currentProduct.variants.find(v => v.weight === weight);
+            if (variant) {
+                document.getElementById('prodPrice').textContent = `${variant.price.toLocaleString('en-PK', {minimumFractionDigits: 2})} Rs.`;
+                const oldEl = document.getElementById('prodOldPrice');
+                if (variant.originalPrice) {
+                    oldEl.textContent = `${variant.originalPrice.toLocaleString('en-PK', {minimumFractionDigits: 2})} Rs.`;
+                    oldEl.classList.remove('d-none');
+                } else {
+                    oldEl.classList.add('d-none');
+                }
+            }
+            updateWhatsAppLink();
+        }
+
+        function updateWhatsAppLink() {
+            if (!currentProduct) return;
+            const price = document.getElementById('prodPrice').textContent;
+            const text = `Hello Zaiqa Craft! I want to order:\n- Product: ${currentProduct.name}\n- Weight: ${selectedWeight}\n- Quantity: ${currentQty}\n- Price: ${price}\nPlease confirm my order!`;
+            document.getElementById('btnWhatsappOrder').href = `https://WA.me/+923074156658?text=${encodeURIComponent(text)}`;
+        }
+
+        function addToCartCurrent() {
+            if (!currentProduct) return;
+            CartManager.addToCart(currentProduct.id, selectedWeight, currentQty);
+        }
+
+        function toggleCurrentWishlist() {
+            if (!currentProduct) return;
+            const added = WishlistManager.toggle(currentProduct.id);
+            const icon = document.getElementById('wishlistIcon');
+            icon.className = added ? 'fa fa-heart text-danger me-1' : 'fa fa-heart-o me-1';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get('slug');
+
+            currentProduct = PRODUCTS_DATA.find(p => p.slug === slug) || PRODUCTS_DATA[0];
+
+            document.getElementById('pageTitle').textContent = `${currentProduct.name} | Zaiqacraft`;
+            document.getElementById('breadcrumbTitle').textContent = currentProduct.name;
+            document.getElementById('prodTitle').textContent = currentProduct.name;
+            document.getElementById('prodSubdesc').innerHTML = currentProduct.subdesc.replace(/\n/g, '<br>');
+            document.getElementById('fullDescText').textContent = currentProduct.description;
+
+            // Gallery
+            const mainImg = document.getElementById('mainProductImg');
+            mainImg.src = currentProduct.primaryImg;
+
+            const thumbsContainer = document.getElementById('galleryThumbs');
+            const images = [currentProduct.primaryImg, currentProduct.secondaryImg];
+            thumbsContainer.innerHTML = images.map((img, idx) => `
+                <div class="product-thumb ${idx === 0 ? 'active' : ''}" onclick="document.querySelectorAll('.product-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('mainProductImg').src='${img}';">
+                    <img src="${img}" alt="Thumbnail">
+                </div>
+            `).join('');
+
+            // Variants
+            const variantsContainer = document.getElementById('variantsContainer');
+            if (currentProduct.variants.length > 1) {
+                variantsContainer.innerHTML = currentProduct.variants.map((v, idx) => `
+                    <button type="button" class="weight-selector-btn ${idx === 0 ? 'active' : ''}" data-weight="${v.weight}" onclick="selectWeight('${v.weight}')">
+                        ${v.weight}
+                    </button>
+                `).join('');
+                selectWeight(currentProduct.variants[0].weight);
+            } else {
+                document.getElementById('variantsContainerWrapper').classList.add('d-none');
+                selectedWeight = currentProduct.variants[0].weight;
+                document.getElementById('prodPrice').textContent = `${currentProduct.price.toLocaleString('en-PK', {minimumFractionDigits: 2})} Rs.`;
+                if (currentProduct.originalPrice) {
+                    const oldEl = document.getElementById('prodOldPrice');
+                    oldEl.textContent = `${currentProduct.originalPrice.toLocaleString('en-PK', {minimumFractionDigits: 2})} Rs.`;
+                    oldEl.classList.remove('d-none');
+                }
+                updateWhatsAppLink();
+            }
+
+            // Wishlist icon sync
+            const isWish = WishlistManager.isWishlisted(currentProduct.id);
+            document.getElementById('wishlistIcon').className = isWish ? 'fa fa-heart text-danger me-1' : 'fa fa-heart-o me-1';
+
+            // Related Products
+            const related = PRODUCTS_DATA.filter(p => p.id !== currentProduct.id).slice(0, 3);
+            document.getElementById('relatedProductsGrid').innerHTML = related.map(p => renderProductCard(p)).join('');
+            setTimeout(initScrollZoomAnimations, 50);
+        });
+    </script>
+</body>
+</html>

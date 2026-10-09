@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home | Zaiqacraft</title>
+    <meta name="description" content="Enjoy Fresh, Healthy &amp; Delicious Food item's at Your Doorstep">
+    <meta name="keywords" content="chakwal rewari,different delicious,nayab chakwal,zaiqa craft,snack shack,nayab,contact,snacks,spicy snacks,healthy foods">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Home | Zaiqacraft">
+    <meta property="og:site_name" content="Zaiqacraft">
+    <meta property="og:url" content="https://zaiqacraft.odoo.com/">
+    <meta property="og:description" content="Enjoy Fresh, Healthy &amp; Delicious Food item's at Your Doorstep">
+
+    <link rel="shortcut icon" href="assets/images/favicon.webp" type="image/x-icon">
+    
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700;800&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="o_header_standard">
+        <!-- Desktop Nav -->
+        <nav class="d-none d-lg-block top-navbar-desktop">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-4 d-flex align-items-center gap-3">
+                        <button type="button" class="header-search-btn" data-bs-toggle="modal" data-bs-target="#searchModal" title="Search">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="index.html" class="navbar-brand">
+                            <img src="assets/images/zaiqa_logo.png" alt="Zaiqacraft" class="navbar-brand-logo">
+                        </a>
+                    </div>
+                    <div class="col-4 d-flex justify-content-end align-items-center gap-3">
+                        <a href="cart.html" class="header-cart-btn" title="View Cart">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span class="badge-counter my_cart_quantity d-none">0</span>
+                        </a>
+                        <a href="wishlist.html" class="header-wish-btn" title="Wishlist">
+                            <i class="fa fa-heart"></i>
+                            <span class="badge-counter my_wish_quantity d-none">0</span>
+                        </a>
+                        <a href="#" class="signin-link" onclick="alert('Customer login feature is ready. You can browse and place orders directly!')">Sign in</a>
+                    </div>
+                </div>
+
+                <!-- Main Menu Links -->
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <ul class="primary-menu-nav">
+                            <li><a href="index.html" class="active">Home</a></li>
+                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="about-us.html">About Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Nav -->
+        <nav class="d-block d-lg-none o_header_mobile">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <button class="btn p-2 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas">
+                    <i class="fa fa-bars fs-4"></i>
+                </button>
+                <a href="index.html" class="navbar-brand m-0">
+                    <img src="assets/images/zaiqa_logo.png" alt="Zaiqacraft" style="height: 36px;">
+                </a>
+                <div class="d-flex align-items-center gap-2">
+                    <a href="cart.html" class="header-cart-btn">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span class="badge-counter my_cart_quantity d-none">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenuOffcanvas">
+        <div class="offcanvas-header border-bottom">
+            <img src="assets/images/zaiqa_logo.png" alt="Zaiqacraft" style="height: 32px;">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column justify-content-between">
+            <div>
+                <div class="input-group mb-4">
+                    <input type="text" class="form-control search-query" placeholder="Search products...">
+                    <button class="btn btn-outline-secondary" type="button" onclick="const val = this.previousElementSibling.value; if(val) window.location.href='shop.html?search='+encodeURIComponent(val);">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+                <ul class="navbar-nav fs-5 text-center">
+                    <li class="nav-item border-bottom py-2"><a href="index.html" class="nav-link text-dark fw-bold">Home</a></li>
+                    <li class="nav-item border-bottom py-2"><a href="shop.html" class="nav-link text-dark">Shop</a></li>
+                    <li class="nav-item border-bottom py-2"><a href="about-us.html" class="nav-link text-dark">About Us</a></li>
+                    <li class="nav-item border-bottom py-2"><a href="wishlist.html" class="nav-link text-dark">My Wishlist</a></li>
+                    <li class="nav-item border-bottom py-2"><a href="cart.html" class="nav-link text-dark">Cart</a></li>
+                </ul>
+            </div>
+            <div class="mt-4">
+                <a href="#" class="btn btn-outline-dark w-100 py-2" onclick="alert('Welcome to Zaiqa Craft!')">Sign in</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg pt-5">
+            <div class="modal-content mt-5 border-0 shadow">
+                <div class="modal-body p-4">
+                    <form onsubmit="event.preventDefault(); const v = document.getElementById('modalSearchBox').value; if(v) window.location.href='shop.html?search='+encodeURIComponent(v);">
+                        <div class="input-group input-group-lg">
+                            <input type="search" id="modalSearchBox" class="form-control border-end-0 bg-light" placeholder="Search snacks, rewari, sweets..." autofocus>
+                            <button type="submit" class="btn btn-primary px-4" style="background-color: var(--primary); border-color: var(--primary);">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <div class="mt-3 text-muted small">
+                        <strong>Popular searches:</strong> Chakwal Rewari, Crunchy Sev, Snack Shack, 1kg Rewari
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section with Signature Zaiqa Amber Orange -->
+        <section class="hero-section py-5 position-relative overflow-hidden" style="background: linear-gradient(135deg, #E17726 0%, #d86915 60%, #c45b0d 100%); color: #ffffff;">
+            <div class="hero-pattern opacity-15"></div>
+            <div class="container position-relative py-lg-4">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6 text-center text-lg-start text-white">
+                        <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-3" style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(8px);">
+                            <span class="badge rounded-pill bg-white text-dark fw-bold">100% PURE</span>
+                            <span class="small fw-bold text-white">Handcrafted Artisanal Pakistani Snacks</span>
+                        </div>
+                        
+                        <h1 class="display-4 fw-bolder mb-3 text-white" style="line-height: 1.15; letter-spacing: -0.5px;">
+                            Well come to Zaiqa Craft
+                        </h1>
+                        
+                        <p class="lead mb-4 text-white" style="font-size: 1.2rem; font-style: italic; font-weight: 600; line-height: 1.6;">
+                            Enjoy Fresh, Healthy &amp; Delicious Food item's at Your Doorstep
+                        </p>
+
+                        <!-- Trust Highlights -->
+                        <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3 mb-4 small text-white fw-medium">
+                            <span><i class="fa fa-check-circle text-white me-1"></i> Pure Desi Ghee &amp; Gur</span>
+                            <span><i class="fa fa-check-circle text-white me-1"></i> Vacuum Freshness Sealed</span>
+                            <span><i class="fa fa-check-circle text-white me-1"></i> Cash on Delivery</span>
+                        </div>
+                        
+                        <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+                            <a href="shop.html" class="btn-shop-now">
+                                Shop Now <i class="fa fa-arrow-right ms-2"></i>
+                            </a>
+                            <a href="https://WA.me/+923074156658?text=Hello%20Zaiqa%20Craft,%20I%20would%20like%20to%20order%20delicious%20snacks!" target="_blank" class="btn btn-lg px-4 py-3 fw-bold rounded-pill btn-outline-light d-inline-flex align-items-center gap-2" style="border-width: 2px;">
+                                <i class="fab fa-whatsapp fs-5"></i> Order on WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="position-relative text-center">
+                            <div class="rounded-4 overflow-hidden shadow-2xl" style="border: 4px solid rgba(255, 255, 255, 0.35); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);">
+                                <img src="assets/images/hero_gourmet_4k.jpg" alt="Zaiqa Craft Gourmet Spread" class="img-fluid w-100" style="object-fit: cover; max-height: 480px;">
+                            </div>
+                            <!-- Floating Quality Badge -->
+                            <div class="position-absolute bottom-0 start-0 translate-middle-y ms-3 p-3 rounded-3 shadow-lg d-none d-sm-flex align-items-center gap-3" style="background: rgba(81, 52, 77, 0.95); backdrop-filter: blur(10px); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2);">
+                                <div class="rounded-circle p-2 d-flex align-items-center justify-content-center" style="background: #ffffff; width: 44px; height: 44px;">
+                                    <i class="fa fa-medal fs-5" style="color: var(--primary);"></i>
+                                </div>
+                                <div class="text-start">
+                                    <div class="fw-bold small text-white">⭐ Rated 4.9 / 5.0</div>
+                                    <div class="small" style="font-size: 0.78rem; color: #f5f2f0;">Loved by 1,200+ Foodies</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Grid Showcase -->
+        <section class="py-5" style="background-color: #ffffff;">
+            <div class="container py-lg-3">
+                <div class="products-section-header">
+                    <div>
+                        <span class="badge rounded-pill text-uppercase px-3 py-2 mb-2" style="background: #fdf2e9; color: var(--primary); font-weight: 700;">Curated Delights</span>
+                        <h2 class="h2 fw-bold text-dark mb-0">Our Signature Products</h2>
+                    </div>
+                    <a href="shop.html" class="see-all-link">
+                        Explore All <i class="fa fa-long-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="row" id="featuredProductsContainer">
+                    <!-- Populated via JavaScript with all 4 4K products -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Steps Section with Original Amber Orange #E17726 -->
+        <section class="process-section py-5" style="background-color: var(--primary); color: #ffffff;">
+            <div class="container py-lg-4">
+                <div class="text-center mb-5">
+                    <span class="badge rounded-pill bg-white text-dark px-3 py-2 mb-2 fw-bold text-uppercase" style="letter-spacing: 1px;">Simple &amp; Hassle-Free</span>
+                    <h2 class="display-6 fw-bold text-white mb-2">Our process in three easy steps</h2>
+                    <p style="color: #fff2e5;">From our kitchen in Chakwal to your home in minutes</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="process-step-card border-0 shadow-lg" style="background: #ffffff; color: var(--dark-text);">
+                            <div class="process-step-number" style="background: var(--secondary); color: #ffffff;">1</div>
+                            <h3 class="fw-bold" style="color: var(--dark);">Add to cart</h3>
+                            <p style="color: #555555;">Browse through our variety of fresh and healthy snacks &amp; dry fruits and add your favorites to the cart.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="process-step-card border-0 shadow-lg" style="background: #ffffff; color: var(--dark-text);">
+                            <div class="process-step-number" style="background: var(--secondary); color: #ffffff;">2</div>
+                            <h3 class="fw-bold" style="color: var(--dark);">Pay</h3>
+                            <p style="color: #555555;">Select your preferred payment method and pay securely or choose Cash on Delivery at your doorstep.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="process-step-card border-0 shadow-lg" style="background: #ffffff; color: var(--dark-text);">
+                            <div class="process-step-number" style="background: var(--secondary); color: #ffffff;">3</div>
+                            <h3 class="fw-bold" style="color: var(--dark);">Get Delivered</h3>
+                            <p style="color: #555555;">Sit back and relax while we deliver your fresh snacks &amp; dry fruits straight to your doorstep!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Buy From Us Section with Original Amber Orange #E17726 -->
+        <section class="why-buy-section py-5" style="background-color: var(--primary); color: #ffffff;">
+            <div class="container py-lg-4">
+                <div class="text-center mb-5">
+                    <h2 class="display-6 fw-bold text-white">Why Buy From Us ?</h2>
+                    <p style="color: #fff2e5;">Purity, Heritage &amp; Trust in Every Single Bite</p>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="bg-white p-4 rounded-4 shadow h-100 text-center border-0 hover-lift" style="color: var(--dark-text);">
+                            <div class="rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 64px; height: 64px; background: #fff5eb; color: var(--primary);">
+                                <i class="fa fa-award fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-2" style="color: var(--dark);">100% Pure Ingredients</h5>
+                            <p class="text-muted small mb-0">Exclusively prepared with pure country desi ghee, organic cane jaggery, and premium grade golden sesame seeds.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="bg-white p-4 rounded-4 shadow h-100 text-center border-0 hover-lift" style="color: var(--dark-text);">
+                            <div class="rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 64px; height: 64px; background: #fbf0f8; color: var(--secondary);">
+                                <i class="fa fa-monument fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-2" style="color: var(--dark);">Authentic Heritage</h5>
+                            <p class="text-muted small mb-0">Crafted according to ancestral Chakwali confectionery traditions, preserving the true essence of real rewari.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="bg-white p-4 rounded-4 shadow h-100 text-center border-0 hover-lift" style="color: var(--dark-text);">
+                            <div class="rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 64px; height: 64px; background: #eafaf1; color: #2ecc71;">
+                                <i class="fa fa-shield-alt fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-2" style="color: var(--dark);">Airtight Freshness</h5>
+                            <p class="text-muted small mb-0">Hygienically produced and sealed in food-grade airtight packaging ensuring unbeatable crunch and aroma.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="bg-white p-4 rounded-4 shadow h-100 text-center border-0 hover-lift" style="color: var(--dark-text);">
+                            <div class="rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 64px; height: 64px; background: #ebf5fb; color: #3498db;">
+                                <i class="fa fa-truck-fast fs-3"></i>
+                            </div>
+                            <h5 class="fw-bold mb-2" style="color: var(--dark);">Nationwide Express</h5>
+                            <p class="text-muted small mb-0">Prompt express courier dispatch to Karachi, Lahore, Islamabad, and every corner of Pakistan with COD.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4K Visual Craft Gallery Section -->
+        <section class="gallery-intro-section" style="background-color: var(--dark);">
+            <div class="container">
+                <span class="badge rounded-pill px-3 py-2 text-uppercase fw-bold mb-2" style="background: rgba(225, 119, 38, 0.2); color: var(--primary);">4K Gourmet Showcase</span>
+                <h2 class="gallery-title">Crafted with Love, Served with Taste</h2>
+                <p class="gallery-lead">
+                    Indulge in a World of Fresh, Healthy &amp; Organic Snacks And Delights, Carefully Crafted to Satisfy Your Cravings and Nourish Your Body!
+                </p>
+            </div>
+        </section>
+
+        <section class="gallery-grid-section pt-0" style="background-color: var(--dark);">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="gallery-item rounded-4 overflow-hidden shadow">
+                            <img src="assets/images/prod_rewari_1kg_4k.jpg" alt="Pure Chakwal Rewari 4K" class="img-fluid w-100" loading="lazy">
+                        </div>
+                        <div class="gallery-item rounded-4 overflow-hidden shadow">
+                            <img src="assets/images/prod_sev_4k.jpg" alt="Crunchy Sev Sticks 4K" class="img-fluid w-100" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="gallery-item rounded-4 overflow-hidden shadow">
+                            <img src="assets/images/prod_nayab_4k.jpg" alt="Nayab Chakwal Rewari 4K" class="img-fluid w-100" loading="lazy">
+                        </div>
+                        <div class="gallery-item rounded-4 overflow-hidden shadow">
+                            <img src="assets/images/about_mission_4k.jpg" alt="Artisanal Simmering Craft 4K" class="img-fluid w-100" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="gallery-item rounded-4 overflow-hidden shadow">
+                            <img src="assets/images/prod_snack_box_4k.jpg" alt="Snack Shack 12-in-1 Box 4K" class="img-fluid w-100" loading="lazy">
+                        </div>
+                        <div class="gallery-item rounded-4 overflow-hidden shadow">
+                            <img src="assets/images/hero_gourmet_4k.jpg" alt="Zaiqa Craft Gourmet Spread 4K" class="img-fluid w-100" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-5 col-md-12">
+                    <h4 class="footer-heading">About us</h4>
+                    <p class="footer-about-text">
+                        Zaiqa Craft is all about taste, quality, and freshness. We offer a carefully chosen variety of food items made to suit every season and every craving.<br><br>
+                        Simple food. Honest quality. Great taste.<br><br>
+                        Crafted with care. Served with taste.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Useful Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About us</a></li>
+                        <li><a href="shop.html">Products</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="contactus.html">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="footer-heading">Connect with us</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fa fa-comment"></i>
+                            <a href="contactus.html">Contact us</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope"></i>
+                            <a href="mailto:zaiqacraft.pk@gmail.com">zaiqacraft.pk@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-phone"></i>
+                            <a href="tel:+923074156658">+923074156658</a>
+                        </li>
+                    </ul>
+                    <h5 class="fs-6 fw-bold mb-3 text-dark">Follow us</h5>
+                    <div class="social-links">
+                        <a href="https://WA.me/+923074156658" target="_blank" class="social-btn text-success" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" class="social-btn text-primary" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="social-btn text-danger" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://tiktok.com" target="_blank" class="social-btn text-dark" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                        <div class="copyright-bar mt-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="mb-0">Copyright &copy; 2026, <a href="index.html" class="fw-semibold">Zaiqa Craft</a></p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+                        <span>Powered by <a href="https://www.kaleemullahzahid.online/" target="_blank" class="qarafi-brand-link" title="Qarafi"><span class="qarafi-logo-text">Qarafi</span></a> - The #1 Open Source eCommerce</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Widget -->
+    <a href="https://WA.me/+923074156658?text=Hello%20Zaiqa%20Craft,%20I%20would%20like%20to%20order%20delicious%20snacks!" target="_blank" class="floating-whatsapp" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('featuredProductsContainer');
+            if (container) {
+                container.innerHTML = PRODUCTS_DATA.map(p => renderProductCard(p)).join('');
+                setTimeout(initScrollZoomAnimations, 50);
+            }
+        });
+    </script>
+</body>
+</html>

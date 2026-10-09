@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Products | Zaiqacraft</title>
+    <meta name="description" content="Zaiqa Craft is all about taste, quality, and freshness. We offer a carefully chosen variety of food items made to suit every season and every craving.">
+    <meta name="keywords" content="different delicious,chakwal rewari,snack shack,nayab chakwal,contact,zaiqa craft,crunchy">
+
+    <link rel="shortcut icon" href="assets/images/favicon.webp" type="image/x-icon">
+    
+    <!-- Fonts & Bootstrap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700;800&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="o_header_standard">
+        <!-- Desktop Nav -->
+        <nav class="d-none d-lg-block top-navbar-desktop">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-4 d-flex align-items-center gap-3">
+                        <button type="button" class="header-search-btn" data-bs-toggle="modal" data-bs-target="#searchModal" title="Search">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="index.html" class="navbar-brand">
+                            <img src="assets/images/zaiqa_logo.png" alt="Zaiqacraft" class="navbar-brand-logo">
+                        </a>
+                    </div>
+                    <div class="col-4 d-flex justify-content-end align-items-center gap-3">
+                        <a href="cart.html" class="header-cart-btn" title="View Cart">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span class="badge-counter my_cart_quantity d-none">0</span>
+                        </a>
+                        <a href="wishlist.html" class="header-wish-btn" title="Wishlist">
+                            <i class="fa fa-heart"></i>
+                            <span class="badge-counter my_wish_quantity d-none">0</span>
+                        </a>
+                        <a href="#" class="signin-link" onclick="alert('Customer login feature is ready. You can browse and place orders directly!')">Sign in</a>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <ul class="primary-menu-nav">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="shop.html" class="active">Shop</a></li>
+                            <li><a href="about-us.html">About Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Nav -->
+        <nav class="d-block d-lg-none o_header_mobile">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <button class="btn p-2 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas">
+                    <i class="fa fa-bars fs-4"></i>
+                </button>
+                <a href="index.html" class="navbar-brand m-0">
+                    <img src="assets/images/zaiqa_logo.png" alt="Zaiqacraft" style="height: 36px;">
+                </a>
+                <div class="d-flex align-items-center gap-2">
+                    <a href="cart.html" class="header-cart-btn">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span class="badge-counter my_cart_quantity d-none">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenuOffcanvas">
+        <div class="offcanvas-header border-bottom">
+            <img src="assets/images/zaiqa_logo.png" alt="Zaiqacraft" style="height: 32px;">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column justify-content-between">
+            <div>
+                <ul class="navbar-nav fs-5 text-center">
+                    <li class="nav-item border-bottom py-2"><a href="index.html" class="nav-link text-dark">Home</a></li>
+                    <li class="nav-item border-bottom py-2"><a href="shop.html" class="nav-link text-dark fw-bold">Shop</a></li>
+                    <li class="nav-item border-bottom py-2"><a href="about-us.html" class="nav-link text-dark">About Us</a></li>
+                    <li class="nav-item border-bottom py-2"><a href="wishlist.html" class="nav-link text-dark">My Wishlist</a></li>
+                    <li class="nav-item border-bottom py-2"><a href="cart.html" class="nav-link text-dark">Cart</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg pt-5">
+            <div class="modal-content mt-5 border-0 shadow">
+                <div class="modal-body p-4">
+                    <div class="input-group input-group-lg">
+                        <input type="search" id="modalSearchBox" class="form-control border-end-0 bg-light" placeholder="Search snacks, rewari, sweets..." autofocus>
+                        <button type="button" class="btn btn-primary px-4" style="background-color: var(--primary); border-color: var(--primary);" onclick="applySearchFromModal()">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shop Main Content -->
+    <main class="py-4 bg-light">
+        <div class="container-fluid px-lg-5">
+            
+            <!-- Shop Title & Categories Filmstrip -->
+            <div class="text-center mb-4">
+                <h1 class="h3 fw-bold mb-3">All products</h1>
+                <div class="d-flex justify-content-center gap-2">
+                    <button type="button" class="category-filmstrip-pill active" id="pillAll" onclick="setCategoryFilter('all')">
+                        <i class="fa fa-th-large"></i> All
+                    </button>
+                    <button type="button" class="category-filmstrip-pill" id="pillSnacks" onclick="setCategoryFilter('snacks')">
+                        <i class="fa fa-cookie-bite"></i> Snacks
+                    </button>
+                </div>
+            </div>
+
+            <!-- Controls Bar -->
+            <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 bg-white p-3 rounded shadow-sm gap-3">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="text-muted small" id="productsCountText">Showing 4 products</span>
+                </div>
+
+                <div class="d-flex flex-wrap align-items-center gap-3 ms-auto">
+                    <!-- Inline Search -->
+                    <div class="input-group input-group-sm" style="max-width: 240px;">
+                        <input type="text" id="shopInlineSearch" class="form-control" placeholder="Search products..." oninput="onFilterChange()">
+                        <button class="btn btn-outline-secondary" type="button" onclick="onFilterChange()">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <!-- Sort Dropdown -->
+                    <div class="d-flex align-items-center gap-2">
+                        <label for="sortSelect" class="small text-muted text-nowrap mb-0">Sort By:</label>
+                        <select id="sortSelect" class="form-select form-select-sm" style="width: 170px;" onchange="onFilterChange()">
+                            <option value="featured">Featured</option>
+                            <option value="newest">Newest Arrivals</option>
+                            <option value="name_asc">Name (A-Z)</option>
+                            <option value="price_asc">Price - Low to High</option>
+                            <option value="price_desc">Price - High to Low</option>
+                        </select>
+                    </div>
+
+                    <!-- Filters Offcanvas Trigger -->
+                    <button class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#filtersOffcanvas">
+                        <i class="fa fa-sliders-h"></i> Filters
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Shop Layout: Sidebar Filters + Products Grid -->
+            <div class="row">
+                <!-- Desktop Sidebar Filters -->
+                <div class="col-lg-3 d-none d-lg-block mb-4">
+                    <div class="bg-white p-4 rounded shadow-sm border">
+                        <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                            <h5 class="fw-bold mb-0 fs-6">Filters</h5>
+                            <button type="button" class="btn btn-link text-muted p-0 text-decoration-none small" onclick="clearAllFilters()">Clear All</button>
+                        </div>
+
+                        <!-- Weight Attribute -->
+                        <div class="mb-4">
+                            <h6 class="fw-bold mb-2">Weight</h6>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input filter-weight" type="checkbox" value="250g" id="w250" onchange="onFilterChange()">
+                                <label class="form-check-label" for="w250">250g</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input filter-weight" type="checkbox" value="500g" id="w500" onchange="onFilterChange()">
+                                <label class="form-check-label" for="w500">500g</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input filter-weight" type="checkbox" value="1kg" id="w1kg" onchange="onFilterChange()">
+                                <label class="form-check-label" for="w1kg">1kg</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input filter-weight" type="checkbox" value="499" id="w499" onchange="onFilterChange()">
+                                <label class="form-check-label" for="w499">Special Box (499 / 999)</label>
+                            </div>
+                        </div>
+
+                        <!-- Price Range -->
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h6 class="fw-bold mb-0">Price Range</h6>
+                                <span class="badge bg-light text-dark border" id="priceDisplay">Max: Rs. 1000</span>
+                            </div>
+                            <input type="range" class="form-range" id="priceRange" min="250" max="1000" step="10" value="1000" oninput="document.getElementById('priceDisplay').textContent = 'Max: Rs. ' + this.value; onFilterChange();">
+                            <div class="d-flex justify-content-between text-muted small">
+                                <span>Rs. 250</span>
+                                <span>Rs. 1000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="col-lg-9 col-12">
+                    <div class="row" id="shopProductsGrid">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                    <div id="noProductsFound" class="text-center py-5 d-none bg-white rounded border">
+                        <i class="fa fa-search fs-1 text-muted mb-3"></i>
+                        <h5>No products found</h5>
+                        <p class="text-muted">Try adjusting your filters or search keywords.</p>
+                        <button type="button" class="btn btn-outline-primary" onclick="clearAllFilters()">Reset Filters</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Filters Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="filtersOffcanvas">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold">Filter Products</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Weight Attribute -->
+            <div class="mb-4">
+                <h6 class="fw-bold mb-2">Weight</h6>
+                <div class="form-check mb-1">
+                    <input class="form-check-input filter-weight-mob" type="checkbox" value="250g" id="mob_w250" onchange="syncAndFilter()">
+                    <label class="form-check-label" for="mob_w250">250g</label>
+                </div>
+                <div class="form-check mb-1">
+                    <input class="form-check-input filter-weight-mob" type="checkbox" value="500g" id="mob_w500" onchange="syncAndFilter()">
+                    <label class="form-check-label" for="mob_w500">500g</label>
+                </div>
+                <div class="form-check mb-1">
+                    <input class="form-check-input filter-weight-mob" type="checkbox" value="1kg" id="mob_w1kg" onchange="syncAndFilter()">
+                    <label class="form-check-label" for="mob_w1kg">1kg</label>
+                </div>
+            </div>
+
+            <!-- Price Range -->
+            <div class="mb-4">
+                <h6 class="fw-bold mb-2">Price Range</h6>
+                <input type="range" class="form-range" id="priceRangeMob" min="250" max="1000" step="10" value="1000" oninput="syncPriceMob(this.value)">
+                <div class="d-flex justify-content-between text-muted small">
+                    <span>Rs. 250</span>
+                    <span id="priceDisplayMob">Rs. 1000</span>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary w-100 mb-2" data-bs-dismiss="offcanvas" style="background-color: var(--primary); border-color: var(--primary);">Apply Filters</button>
+            <button type="button" class="btn btn-outline-secondary w-100" onclick="clearAllFilters()">Clear Filters</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-5 col-md-12">
+                    <h4 class="footer-heading">About us</h4>
+                    <p class="footer-about-text">
+                        Zaiqa Craft is all about taste, quality, and freshness. We offer a carefully chosen variety of food items made to suit every season and every craving.<br><br>
+                        Simple food. Honest quality. Great taste.<br><br>
+                        Crafted with care. Served with taste.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Useful Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About us</a></li>
+                        <li><a href="shop.html">Products</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="contactus.html">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="footer-heading">Connect with us</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fa fa-comment"></i>
+                            <a href="contactus.html">Contact us</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope"></i>
+                            <a href="mailto:zaiqacraft.pk@gmail.com">zaiqacraft.pk@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-phone"></i>
+                            <a href="tel:+923074156658">+923074156658</a>
+                        </li>
+                    </ul>
+                    <h5 class="fs-6 fw-bold mb-3 text-dark">Follow us</h5>
+                    <div class="social-links">
+                        <a href="https://WA.me/+923074156658" target="_blank" class="social-btn text-success"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://facebook.com" target="_blank" class="social-btn text-primary"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="social-btn text-danger"><i class="fab fa-instagram"></i></a>
+                        <a href="https://tiktok.com" target="_blank" class="social-btn text-dark"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+
+                        <div class="copyright-bar mt-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="mb-0">Copyright &copy; 2026, <a href="index.html" class="fw-semibold">Zaiqa Craft</a></p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+                        <span>Powered by <a href="https://www.kaleemullahzahid.online/" target="_blank" class="qarafi-brand-link" title="Qarafi"><span class="qarafi-logo-text">Qarafi</span></a> - The #1 Open Source eCommerce</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Widget -->
+    <a href="https://WA.me/+923074156658?text=Hello%20Zaiqa%20Craft,%20I%20have%20an%20inquiry%20about%20your%20products!" target="_blank" class="floating-whatsapp" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        let currentCategory = 'all';
+
+        function setCategoryFilter(cat) {
+            currentCategory = cat;
+            document.getElementById('pillAll').classList.toggle('active', cat === 'all');
+            document.getElementById('pillSnacks').classList.toggle('active', cat === 'snacks');
+            onFilterChange();
+        }
+
+        function clearAllFilters() {
+            document.getElementById('shopInlineSearch').value = '';
+            document.getElementById('priceRange').value = 1000;
+            document.getElementById('priceDisplay').textContent = 'Max: Rs. 1000';
+            document.querySelectorAll('.filter-weight, .filter-weight-mob').forEach(cb => cb.checked = false);
+            document.getElementById('sortSelect').value = 'featured';
+            setCategoryFilter('all');
+        }
+
+        function syncAndFilter() {
+            const mobChecked = Array.from(document.querySelectorAll('.filter-weight-mob:checked')).map(c => c.value);
+            document.querySelectorAll('.filter-weight').forEach(cb => {
+                cb.checked = mobChecked.includes(cb.value);
+            });
+            onFilterChange();
+        }
+
+        function syncPriceMob(val) {
+            document.getElementById('priceRange').value = val;
+            document.getElementById('priceDisplay').textContent = 'Max: Rs. ' + val;
+            document.getElementById('priceDisplayMob').textContent = 'Rs. ' + val;
+            onFilterChange();
+        }
+
+        function applySearchFromModal() {
+            const q = document.getElementById('modalSearchBox').value;
+            const modalEl = document.getElementById('searchModal');
+            const modal = bootstrap.Modal.getInstance(modalEl);
+            if (modal) modal.hide();
+            document.getElementById('shopInlineSearch').value = q;
+            onFilterChange();
+        }
+
+        function onFilterChange() {
+            const query = (document.getElementById('shopInlineSearch').value || '').toLowerCase().trim();
+            const maxPrice = parseFloat(document.getElementById('priceRange').value) || 1000;
+            const selectedWeights = Array.from(document.querySelectorAll('.filter-weight:checked')).map(cb => cb.value);
+            const sortBy = document.getElementById('sortSelect').value;
+
+            let filtered = PRODUCTS_DATA.filter(p => {
+                if (currentCategory !== 'all' && p.category !== currentCategory) return false;
+                if (p.price > maxPrice) return false;
+                if (query && !p.name.toLowerCase().includes(query) && !p.subdesc.toLowerCase().includes(query)) return false;
+                if (selectedWeights.length > 0) {
+                    const hasWeight = p.variants.some(v => selectedWeights.includes(v.weight)) || selectedWeights.includes(p.weight);
+                    if (!hasWeight) return false;
+                }
+                return true;
+            });
+
+            // Sorting
+            if (sortBy === 'price_asc') {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (sortBy === 'price_desc') {
+                filtered.sort((a, b) => b.price - a.price);
+            } else if (sortBy === 'name_asc') {
+                filtered.sort((a, b) => a.name.localeCompare(b.name));
+            } else if (sortBy === 'newest') {
+                filtered.sort((a, b) => b.id - a.id);
+            }
+
+            const grid = document.getElementById('shopProductsGrid');
+            const noProducts = document.getElementById('noProductsFound');
+            const countText = document.getElementById('productsCountText');
+
+            countText.textContent = `Showing ${filtered.length} product${filtered.length === 1 ? '' : 's'}`;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                noProducts.classList.remove('d-none');
+            } else {
+                noProducts.classList.add('d-none');
+                grid.innerHTML = filtered.map(p => renderProductCard(p)).join('');
+                setTimeout(initScrollZoomAnimations, 50);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchParam = urlParams.get('search');
+            if (searchParam) {
+                document.getElementById('shopInlineSearch').value = searchParam;
+            }
+            onFilterChange();
+        });
+    </script>
+</body>
+</html>

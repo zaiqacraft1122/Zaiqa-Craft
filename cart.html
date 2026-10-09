@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shopping Cart | Zaiqacraft</title>
+
+    <link rel="shortcut icon" href="assets/images/favicon.webp" type="image/x-icon">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700;800&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+
+    <!-- Header Navigation -->
+    <header class="o_header_standard">
+        <nav class="d-none d-lg-block top-navbar-desktop">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-4 d-flex align-items-center gap-3">
+                        <button type="button" class="header-search-btn" data-bs-toggle="modal" data-bs-target="#searchModal" title="Search">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="index.html" class="navbar-brand">
+                            <img src="assets/images/zaiqa_logo.png" alt="Zaiqacraft" class="navbar-brand-logo">
+                        </a>
+                    </div>
+                    <div class="col-4 d-flex justify-content-end align-items-center gap-3">
+                        <a href="cart.html" class="header-cart-btn" title="View Cart">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span class="badge-counter my_cart_quantity d-none">0</span>
+                        </a>
+                        <a href="wishlist.html" class="header-wish-btn" title="Wishlist">
+                            <i class="fa fa-heart"></i>
+                            <span class="badge-counter my_wish_quantity d-none">0</span>
+                        </a>
+                        <a href="#" class="signin-link" onclick="alert('Login / Register')">Sign in</a>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <ul class="primary-menu-nav">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="about-us.html">About Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <nav class="d-block d-lg-none o_header_mobile">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <a href="shop.html" class="btn p-2 border-0"><i class="fa fa-arrow-left fs-5"></i></a>
+                <a href="index.html" class="navbar-brand m-0">
+                    <img src="assets/images/zaiqa_logo.png" alt="Zaiqacraft" style="height: 36px;">
+                </a>
+                <a href="wishlist.html" class="header-wish-btn">
+                    <i class="fa fa-heart"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg pt-5">
+            <div class="modal-content mt-5 border-0 shadow">
+                <div class="modal-body p-4">
+                    <div class="input-group input-group-lg">
+                        <input type="search" id="modalSearchBox" class="form-control border-end-0 bg-light" placeholder="Search snacks, rewari, sweets...">
+                        <button type="button" class="btn btn-primary px-4" style="background-color: var(--primary); border-color: var(--primary);" onclick="const v = document.getElementById('modalSearchBox').value; if(v) window.location.href='shop.html?search='+encodeURIComponent(v);">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart / Checkout Container -->
+    <main class="py-5">
+        <div class="container">
+            
+            <!-- Checkout 3-Step Wizard -->
+            <div class="checkout-stepper justify-content-center mb-5">
+                <div class="checkout-step active" id="stepIndicator1">
+                    <i class="fa fa-shopping-basket"></i>
+                    <span>1. Order</span>
+                </div>
+                <span class="fa fa-angle-right text-muted"></span>
+                <div class="checkout-step" id="stepIndicator2">
+                    <i class="fa fa-map-marker-alt"></i>
+                    <span>2. Address</span>
+                </div>
+                <span class="fa fa-angle-right text-muted"></span>
+                <div class="checkout-step" id="stepIndicator3">
+                    <i class="fa fa-credit-card"></i>
+                    <span>3. Payment</span>
+                </div>
+            </div>
+
+            <!-- STEP 1: CART REVIEW -->
+            <div id="step1View">
+                <div class="row g-4" id="cartContentRow">
+                    <div class="col-lg-8">
+                        <div class="bg-white p-4 rounded shadow-sm">
+                            <h4 class="fw-bold mb-4 pb-2 border-bottom">Your Shopping Cart</h4>
+                            
+                            <div class="table-responsive">
+                                <table class="table align-middle cart-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Price</th>
+                                            <th style="width: 140px;">Quantity</th>
+                                            <th>Subtotal</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="cartTableBody">
+                                        <!-- Cart Items injected via JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                                <a href="shop.html" class="btn btn-outline-secondary">
+                                    <i class="fa fa-arrow-left me-1"></i> Continue Shopping
+                                </a>
+                                <button type="button" class="btn btn-outline-danger btn-sm" onclick="clearCart()">
+                                    <i class="fa fa-trash me-1"></i> Empty Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Summary & Checkout Buttons -->
+                    <div class="col-lg-4">
+                        <div class="bg-white p-4 rounded shadow-sm mb-4">
+                            <h5 class="fw-bold mb-3 pb-2 border-bottom">Order Summary</h5>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Subtotal:</span>
+                                <span class="fw-bold" id="cartSubtotalText">0.00 Rs.</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Delivery Charges:</span>
+                                <span class="fw-semibold text-success" id="shippingText">Free</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3 pb-2 border-bottom d-none" id="discountRow">
+                                <span class="text-muted">Coupon Discount:</span>
+                                <span class="fw-bold text-danger" id="discountText">-0.00 Rs.</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-4 fs-5">
+                                <span class="fw-bold">Total:</span>
+                                <span class="fw-bold" style="color: var(--primary);" id="cartTotalText">0.00 Rs.</span>
+                            </div>
+
+                            <!-- Coupon Input -->
+                            <div class="input-group input-group-sm mb-4">
+                                <input type="text" id="couponCode" class="form-control" placeholder="Promo code (e.g. ZAIQA10)">
+                                <button class="btn btn-outline-primary" type="button" onclick="applyCoupon()">Apply</button>
+                            </div>
+
+                            <button type="button" class="btn btn-lg w-100 text-white fw-bold mb-3 shadow-sm" style="background-color: var(--primary);" onclick="goToStep(2)">
+                                Proceed to Checkout <i class="fa fa-arrow-right ms-2"></i>
+                            </button>
+
+                            <button type="button" class="whatsapp-direct-btn w-100" onclick="instantWhatsAppCheckout()">
+                                <i class="fab fa-whatsapp fs-5"></i> Quick WhatsApp Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty Cart State -->
+                <div class="text-center py-5 bg-white rounded shadow-sm d-none" id="emptyCartView">
+                    <i class="fa fa-shopping-cart text-muted mb-3" style="font-size: 4rem;"></i>
+                    <h3 class="fw-bold">Your cart is empty!</h3>
+                    <p class="text-muted mb-4">Looks like you haven't added any delicious snacks to your cart yet.</p>
+                    <a href="shop.html" class="btn btn-lg px-4 text-white fw-bold" style="background-color: var(--primary);">
+                        Shop Our Products
+                    </a>
+                </div>
+            </div>
+
+            <!-- STEP 2: ADDRESS -->
+            <div id="step2View" class="d-none">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="bg-white p-4 rounded shadow-sm">
+                            <h4 class="fw-bold mb-4 pb-2 border-bottom">Shipping Address</h4>
+                            <form id="addressForm" onsubmit="event.preventDefault(); goToStep(3);">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Full Name *</label>
+                                        <input type="text" class="form-control" id="custName" required placeholder="e.g. Ali Khan">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Phone / WhatsApp *</label>
+                                        <input type="tel" class="form-control" id="custPhone" required placeholder="0300-1234567">
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label fw-semibold">Email Address (Optional)</label>
+                                        <input type="email" class="form-control" id="custEmail" placeholder="name@example.com">
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label fw-semibold">Street Address / House # *</label>
+                                        <textarea class="form-control" id="custAddress" rows="2" required placeholder="House #, Street, Area / Sector"></textarea>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">City *</label>
+                                        <input type="text" class="form-control" id="custCity" required placeholder="Lahore, Karachi, Islamabad, Chakwal...">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Province *</label>
+                                        <select class="form-select" id="custProvince" required>
+                                            <option value="Punjab" selected>Punjab</option>
+                                            <option value="Sindh">Sindh</option>
+                                            <option value="Khyber Pakhtunkhwa">Khyber Pakhtunkhwa</option>
+                                            <option value="Balochistan">Balochistan</option>
+                                            <option value="Islamabad Capital Territory">Islamabad</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label fw-semibold">Order Notes (Optional)</label>
+                                        <input type="text" class="form-control" id="custNotes" placeholder="Special delivery instructions">
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between mt-4 pt-3 border-top">
+                                    <button type="button" class="btn btn-outline-secondary" onclick="goToStep(1)">
+                                        <i class="fa fa-arrow-left me-1"></i> Back to Cart
+                                    </button>
+                                    <button type="submit" class="btn text-white fw-bold px-4" style="background-color: var(--primary);">
+                                        Continue to Payment <i class="fa fa-arrow-right ms-1"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 3: PAYMENT -->
+            <div id="step3View" class="d-none">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <div class="bg-white p-4 rounded shadow-sm mb-4">
+                            <h4 class="fw-bold mb-4 pb-2 border-bottom">Choose Payment Method</h4>
+                            
+                            <div class="form-check p-3 border rounded mb-3">
+                                <input class="form-check-input ms-0 me-3" type="radio" name="paymentMethod" id="payCod" value="Cash on Delivery" checked onchange="togglePaymentInfo()">
+                                <label class="form-check-label fw-bold" for="payCod">
+                                    <i class="fa fa-money-bill-wave text-success me-2"></i> Cash on Delivery (COD)
+                                    <p class="text-muted small fw-normal mb-0 mt-1">Pay with cash when your parcel arrives at your doorstep.</p>
+                                </label>
+                            </div>
+
+                            <div class="form-check p-3 border rounded mb-4">
+                                <input class="form-check-input ms-0 me-3" type="radio" name="paymentMethod" id="payBank" value="Bank / Mobile Wallet" onchange="togglePaymentInfo()">
+                                <label class="form-check-label fw-bold" for="payBank">
+                                    <i class="fa fa-university text-primary me-2"></i> Bank Transfer / EasyPaisa / JazzCash
+                                    <p class="text-muted small fw-normal mb-0 mt-1">Direct transfer to our official business account.</p>
+                                </label>
+                            </div>
+
+                            <div id="bankDetailsBox" class="p-3 bg-light rounded mb-4 d-none border">
+                                <h6 class="fw-bold mb-2">Account Details:</h6>
+                                <p class="small text-muted mb-1"><strong>Bank:</strong> Meezan Bank Ltd</p>
+                                <p class="small text-muted mb-1"><strong>Title:</strong> Zaiqa Craft</p>
+                                <p class="small text-muted mb-1"><strong>Account / IBAN:</strong> PK66MEZN0001234567890123</p>
+                                <p class="small text-muted mb-0"><strong>JazzCash / EasyPaisa:</strong> 0307-4156658</p>
+                            </div>
+
+                            <div class="p-3 bg-light rounded mb-4">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span class="text-muted">Total Payable:</span>
+                                    <span class="fw-bold fs-5" style="color: var(--primary);" id="step3TotalText">0.00 Rs.</span>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between pt-3 border-top">
+                                <button type="button" class="btn btn-outline-secondary" onclick="goToStep(2)">
+                                    <i class="fa fa-arrow-left me-1"></i> Back to Address
+                                </button>
+                                <button type="button" class="btn text-white fw-bold px-4 shadow-sm" style="background-color: var(--primary);" onclick="placeOrder()">
+                                    <i class="fa fa-check-circle me-1"></i> Confirm &amp; Place Order
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ORDER SUCCESS CONFIRMATION -->
+            <div id="orderSuccessView" class="d-none text-center py-5 bg-white rounded shadow-sm">
+                <i class="fa fa-check-circle text-success mb-3" style="font-size: 5rem;"></i>
+                <h2 class="fw-bold mb-2">Thank you! Your order is placed!</h2>
+                <p class="text-muted mb-4">Order ID: <strong id="placedOrderId" class="text-dark">#ZC-1001</strong></p>
+
+                <div class="col-lg-6 mx-auto text-start p-4 bg-light rounded border mb-4">
+                    <h5 class="fw-bold mb-3">Order Details</h5>
+                    <p class="mb-1" id="confirmCustomerName"></p>
+                    <p class="mb-1" id="confirmCustomerPhone"></p>
+                    <p class="mb-1" id="confirmCustomerAddress"></p>
+                    <p class="mb-1" id="confirmPaymentMethod"></p>
+                    <p class="mb-0 fw-bold mt-2" style="color: var(--primary);" id="confirmTotalAmount"></p>
+                </div>
+
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="shop.html" class="btn btn-outline-secondary">Continue Shopping</a>
+                    <a href="#" id="confirmWhatsAppBtn" target="_blank" class="whatsapp-direct-btn">
+                        <i class="fab fa-whatsapp fs-5"></i> Send Confirmation on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-5 col-md-12">
+                    <h4 class="footer-heading">About us</h4>
+                    <p class="footer-about-text">
+                        Zaiqa Craft is all about taste, quality, and freshness. We offer a carefully chosen variety of food items made to suit every season and every craving.<br><br>
+                        Simple food. Honest quality. Great taste.<br><br>
+                        Crafted with care. Served with taste.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Useful Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About us</a></li>
+                        <li><a href="shop.html">Products</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="contactus.html">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="footer-heading">Connect with us</h4>
+                    <ul class="footer-contact-list">
+                        <li><i class="fa fa-comment"></i><a href="contactus.html">Contact us</a></li>
+                        <li><i class="fa fa-envelope"></i><a href="mailto:zaiqacraft.pk@gmail.com">zaiqacraft.pk@gmail.com</a></li>
+                        <li><i class="fa fa-phone"></i><a href="tel:+923074156658">+923074156658</a></li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="https://WA.me/+923074156658" target="_blank" class="social-btn text-success"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://facebook.com" target="_blank" class="social-btn text-primary"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="social-btn text-danger"><i class="fab fa-instagram"></i></a>
+                        <a href="https://tiktok.com" target="_blank" class="social-btn text-dark"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+
+                        <div class="copyright-bar mt-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="mb-0">Copyright &copy; 2026, <a href="index.html" class="fw-semibold">Zaiqa Craft</a></p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+                        <span>Powered by <a href="https://www.kaleemullahzahid.online/" target="_blank" class="qarafi-brand-link" title="Qarafi"><span class="qarafi-logo-text">Qarafi</span></a> - The #1 Open Source eCommerce</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        let discountPercent = 0;
+
+        function renderCartTable() {
+            const cart = CartManager.getCart();
+            const tableBody = document.getElementById('cartTableBody');
+            const cartContentRow = document.getElementById('cartContentRow');
+            const emptyCartView = document.getElementById('emptyCartView');
+
+            if (cart.length === 0) {
+                cartContentRow.classList.add('d-none');
+                emptyCartView.classList.remove('d-none');
+                return;
+            }
+
+            cartContentRow.classList.remove('d-none');
+            emptyCartView.classList.add('d-none');
+
+            tableBody.innerHTML = cart.map((item, index) => {
+                const lineTotal = item.price * item.quantity;
+                return `
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="${item.image}" alt="${item.name}" style="width: 55px; height: 55px; object-fit: cover; border-radius: 6px;">
+                                <div>
+                                    <a href="product.html?slug=${item.slug}" class="fw-bold text-dark text-decoration-none">${item.name}</a>
+                                    <div class="small text-muted">Weight: ${item.selectedWeight}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="fw-semibold">${item.price.toLocaleString('en-PK', {minimumFractionDigits: 2})} Rs.</td>
+                        <td>
+                            <div class="qty-control">
+                                <button type="button" class="qty-btn" onclick="updateItemQty(${index}, ${item.quantity - 1})"><i class="fa fa-minus"></i></button>
+                                <input type="number" class="qty-input" value="${item.quantity}" readonly>
+                                <button type="button" class="qty-btn" onclick="updateItemQty(${index}, ${item.quantity + 1})"><i class="fa fa-plus"></i></button>
+                            </div>
+                        </td>
+                        <td class="fw-bold" style="color: var(--primary);">${lineTotal.toLocaleString('en-PK', {minimumFractionDigits: 2})} Rs.</td>
+                        <td>
+                            <button type="button" class="btn btn-link text-danger p-0" title="Remove" onclick="CartManager.removeFromCart(${index}); renderCartTable();">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            updateSummary();
+        }
+
+        function updateItemQty(index, qty) {
+            CartManager.updateQuantity(index, qty);
+            renderCartTable();
+        }
+
+        function clearCart() {
+            if (confirm("Are you sure you want to clear your cart?")) {
+                CartManager.saveCart([]);
+                renderCartTable();
+            }
+        }
+
+        function updateSummary() {
+            const subtotal = CartManager.getSubtotal();
+            const discount = subtotal * (discountPercent / 100);
+            const total = subtotal - discount;
+
+            document.getElementById('cartSubtotalText').textContent = `${subtotal.toLocaleString('en-PK', {minimumFractionDigits: 2})} Rs.`;
+            document.getElementById('cartTotalText').textContent = `${total.toLocaleString('en-PK', {minimumFractionDigits: 2})} Rs.`;
+            document.getElementById('step3TotalText').textContent = `${total.toLocaleString('en-PK', {minimumFractionDigits: 2})} Rs.`;
+
+            if (discount > 0) {
+                document.getElementById('discountRow').classList.remove('d-none');
+                document.getElementById('discountText').textContent = `-${discount.toLocaleString('en-PK', {minimumFractionDigits: 2})} Rs.`;
+            } else {
+                document.getElementById('discountRow').classList.add('d-none');
+            }
+        }
+
+        function applyCoupon() {
+            const code = document.getElementById('couponCode').value.trim().toUpperCase();
+            if (code === 'ZAIQA10') {
+                discountPercent = 10;
+                showToast("10% Special Discount Applied!");
+            } else if (code === 'FREESHIP') {
+                discountPercent = 5;
+                showToast("Special Discount Applied!");
+            } else {
+                alert("Invalid Coupon Code. Try 'ZAIQA10' for 10% off!");
+                discountPercent = 0;
+            }
+            updateSummary();
+        }
+
+        function goToStep(step) {
+            document.getElementById('step1View').classList.toggle('d-none', step !== 1);
+            document.getElementById('step2View').classList.toggle('d-none', step !== 2);
+            document.getElementById('step3View').classList.toggle('d-none', step !== 3);
+            document.getElementById('orderSuccessView').classList.add('d-none');
+
+            document.getElementById('stepIndicator1').classList.toggle('active', step >= 1);
+            document.getElementById('stepIndicator2').classList.toggle('active', step >= 2);
+            document.getElementById('stepIndicator3').classList.toggle('active', step >= 3);
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function togglePaymentInfo() {
+            const isBank = document.getElementById('payBank').checked;
+            document.getElementById('bankDetailsBox').classList.toggle('d-none', !isBank);
+        }
+
+        function placeOrder() {
+            const name = document.getElementById('custName').value || 'Customer';
+            const phone = document.getElementById('custPhone').value || 'Not provided';
+            const address = document.getElementById('custAddress').value || '';
+            const city = document.getElementById('custCity').value || '';
+            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+            const cart = CartManager.getCart();
+            const total = document.getElementById('step3TotalText').textContent;
+            const orderId = '#ZC-' + Math.floor(100000 + Math.random() * 900000);
+
+            // Display order confirmation
+            document.getElementById('step1View').classList.add('d-none');
+            document.getElementById('step2View').classList.add('d-none');
+            document.getElementById('step3View').classList.add('d-none');
+            document.getElementById('orderSuccessView').classList.remove('d-none');
+
+            document.getElementById('placedOrderId').textContent = orderId;
+            document.getElementById('confirmCustomerName').textContent = `Customer: ${name}`;
+            document.getElementById('confirmCustomerPhone').textContent = `Phone: ${phone}`;
+            document.getElementById('confirmCustomerAddress').textContent = `Shipping Address: ${address}, ${city}`;
+            document.getElementById('confirmPaymentMethod').textContent = `Payment Mode: ${paymentMethod}`;
+            document.getElementById('confirmTotalAmount').textContent = `Total Amount: ${total}`;
+
+            // Create WhatsApp Confirmation text
+            let itemsText = cart.map(i => `• ${i.name} (${i.selectedWeight}) x${i.quantity} = Rs. ${i.price * i.quantity}`).join('\n');
+            const waMessage = `Assalam-o-Alaikum Zaiqa Craft!
+I have placed Order ${orderId}:
+Customer: ${name}
+Phone: ${phone}
+Address: ${address}, ${city}
+Payment: ${paymentMethod}
+
+Items:
+${itemsText}
+
+Total: ${total}
+Please confirm my order. Thank you!`;
+
+            document.getElementById('confirmWhatsAppBtn').href = `https://WA.me/+923074156658?text=${encodeURIComponent(waMessage)}`;
+
+            // Clear Cart
+            CartManager.saveCart([]);
+        }
+
+        function instantWhatsAppCheckout() {
+            const cart = CartManager.getCart();
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+            const subtotal = CartManager.getSubtotal();
+            let itemsText = cart.map(i => `• ${i.name} (${i.selectedWeight}) x${i.quantity} = Rs. ${i.price * i.quantity}`).join('\n');
+            const text = `Assalam-o-Alaikum Zaiqa Craft!
+I would like to place an order directly:
+${itemsText}
+Subtotal: Rs. ${subtotal.toLocaleString('en-PK')}
+Please provide delivery details!`;
+
+            window.open(`https://WA.me/+923074156658?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCartTable();
+        });
+    </script>
+</body>
+</html>

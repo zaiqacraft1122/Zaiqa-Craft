@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wishlist | Zaiqacraft</title>
+
+    <link rel="shortcut icon" href="assets/images/favicon.webp" type="image/x-icon">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700;800&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+
+    <!-- Header Navigation -->
+    <header class="o_header_standard">
+        <nav class="d-none d-lg-block top-navbar-desktop">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-4 d-flex align-items-center gap-3">
+                        <a href="shop.html" class="header-search-btn"><i class="fa fa-search"></i></a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="index.html" class="navbar-brand">
+                            <img src="assets/images/zaiqa_logo.png" alt="Zaiqacraft" class="navbar-brand-logo">
+                        </a>
+                    </div>
+                    <div class="col-4 d-flex justify-content-end align-items-center gap-3">
+                        <a href="cart.html" class="header-cart-btn" title="View Cart">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span class="badge-counter my_cart_quantity d-none">0</span>
+                        </a>
+                        <a href="wishlist.html" class="header-wish-btn" title="Wishlist">
+                            <i class="fa fa-heart"></i>
+                            <span class="badge-counter my_wish_quantity d-none">0</span>
+                        </a>
+                        <a href="#" class="signin-link" onclick="alert('Login / Register')">Sign in</a>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <ul class="primary-menu-nav">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="about-us.html">About Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+            <h1 class="h3 fw-bold mb-4">My Wishlist</h1>
+            
+            <div class="bg-white p-4 rounded shadow-sm" id="wishlistContainer">
+                <div class="table-responsive">
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="wishlistTableBody">
+                            <!-- Injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="emptyWishlistView" class="text-center py-5 d-none">
+                    <i class="fa fa-heart-o text-muted mb-3" style="font-size: 3.5rem;"></i>
+                    <h4 class="fw-bold">Your wishlist is empty</h4>
+                    <p class="text-muted">Save your favorite items here to review and purchase later.</p>
+                    <a href="shop.html" class="btn text-white fw-bold px-4" style="background-color: var(--primary);">Explore Products</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-5 col-md-12">
+                    <h4 class="footer-heading">About us</h4>
+                    <p class="footer-about-text">
+                        Zaiqa Craft is all about taste, quality, and freshness. We offer a carefully chosen variety of food items made to suit every season and every craving.<br><br>
+                        Simple food. Honest quality. Great taste.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Useful Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About us</a></li>
+                        <li><a href="shop.html">Products</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="contactus.html">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="footer-heading">Connect with us</h4>
+                    <ul class="footer-contact-list">
+                        <li><i class="fa fa-envelope"></i><a href="mailto:zaiqacraft.pk@gmail.com">zaiqacraft.pk@gmail.com</a></li>
+                        <li><i class="fa fa-phone"></i><a href="tel:+923074156658">+923074156658</a></li>
+                    </ul>
+                </div>
+            </div>
+                        <div class="copyright-bar mt-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="mb-0">Copyright &copy; 2026, <a href="index.html" class="fw-semibold">Zaiqa Craft</a></p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+                        <span>Powered by <a href="https://www.kaleemullahzahid.online/" target="_blank" class="qarafi-brand-link" title="Qarafi"><span class="qarafi-logo-text">Qarafi</span></a> - The #1 Open Source eCommerce</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        function renderWishlist() {
+            const list = WishlistManager.getWishlist();
+            const tbody = document.getElementById('wishlistTableBody');
+            const emptyView = document.getElementById('emptyWishlistView');
+
+            if (list.length === 0) {
+                tbody.innerHTML = '';
+                emptyView.classList.remove('d-none');
+                return;
+            }
+
+            emptyView.classList.add('d-none');
+            const products = PRODUCTS_DATA.filter(p => list.includes(p.id));
+
+            tbody.innerHTML = products.map(p => `
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="${p.primaryImg}" style="width: 55px; height: 55px; object-fit: cover; border-radius: 6px;">
+                            <div>
+                                <a href="product.html?slug=${p.slug}" class="fw-bold text-dark text-decoration-none">${p.name}</a>
+                                <div class="small text-muted">${p.weight}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="fw-bold">${p.price.toLocaleString('en-PK', {minimumFractionDigits: 2})} Rs.</td>
+                    <td><span class="badge bg-success-subtle text-success">In Stock</span></td>
+                    <td>
+                        <button type="button" class="btn btn-sm text-white fw-bold px-3" style="background-color: var(--primary);" onclick="CartManager.addToCart(${p.id}); WishlistManager.toggle(${p.id}); renderWishlist();">
+                            Add to Cart
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-link text-danger p-0" onclick="WishlistManager.toggle(${p.id}); renderWishlist();">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderWishlist();
+        });
+    </script>
+</body>
+</html>
