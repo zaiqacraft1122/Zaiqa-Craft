@@ -1,0 +1,62 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/assets/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/shop",
+      "dest": "/shop.html"
+    },
+    {
+      "src": "/about-us",
+      "dest": "/about-us.html"
+    },
+    {
+      "src": "/contactus",
+      "dest": "/contactus.html"
+    },
+    {
+      "src": "/privacy",
+      "dest": "/privacy.html"
+    },
+    {
+      "src": "/cart",
+      "dest": "/cart.html"
+    },
+    {
+      "src": "/wishlist",
+      "dest": "/wishlist.html"
+    },
+    {
+      "src": "/product",
+      "dest": "/product.html"
+    }
+  ]
+}
