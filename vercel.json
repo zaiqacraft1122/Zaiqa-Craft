@@ -2,6 +2,12 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/:image((?!css|js|assets).*\\.(?:jpg|jpeg|png|webp|svg|ico))",
+      "destination": "/assets/images/:image"
+    }
+  ],
   "builds": [
     {
       "src": "**/*",
